@@ -1,0 +1,86 @@
+<div class="ftco-footer pt-5 pb-5 ftco-bg-dark ftco-section all-height">
+    <div class="row col-12">
+  
+      <div class="container col-md-5 col-6">
+        <div class="col-lg-12 py-5">
+          <img src="../../../assets/img/undraw_podcast_q6p7.svg" style="width: 100%;" alt="">
+        </div>
+      </div>
+      
+      <div class="container col-md-5 col-6">
+  
+        <div class="mb-3 pb-3 align-items-center col-12">
+          <div class="col-12">
+            <div class="heading-section heading-section-white ">
+              <span class="subheading">Se parte de esta gran comunidad</span>
+              <h2 style="font-size: 30px;">Registrate ahora</h2>
+            </div>
+          </div>
+        </div>
+    
+        <div class="mb-3 align-items-center col-12">
+          <div class="block-9">
+            <div class="col-12">
+
+              <!-- Access form -->
+              <form action="#" *ngIf="!register">
+  
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña">
+                </div>
+  
+                <div class="form-group">
+                  <input type="submit" value="Entrar" class="btn btn-primary py-3 w-100">
+                  <span class="position d-block mt-2 ml-2" style="color: rgba(255,255,255,.5);">¿Aún no te has registrado? <span class="link" (click)="register = true">Regístrate</span>.</span>
+                </div>
+  
+              </form>
+              <!-- Access form -->
+
+              <!-- Register form -->
+              <form action="#" *ngIf="register">
+  
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre(s)">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Apellido(s)">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre de usuario">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña">
+                </div>
+  
+                <div class="form-group">
+                  <input type="submit" value="Entrar" class="btn btn-primary py-3 w-100">
+                  <span class="position d-block mt-2 ml-2" style="color: rgba(255,255,255,.5);">¿Ya estas registrado? <span class="link" (click)="register = false">Acceder</span>.</span>
+                </div>
+  
+              </form>
+              <!-- Register form -->
+
+            </div>
+          </div>
+    
+    
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center mt-5">
+  
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy; All rights reserved | By <a href="https://muckystack.000webhostapp.com/" target="_blank">muckystack</a>.
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+  </div>
