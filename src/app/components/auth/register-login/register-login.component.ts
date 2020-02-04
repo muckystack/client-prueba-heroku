@@ -21,7 +21,7 @@ export class RegisterLoginComponent implements OnInit {
   // Models
   public user:User;
 
-  constructor(private _validationsService:ValidationsService, private _fb:FormBuilder, private _authService:AuthService) {
+  constructor(public _validationsService:ValidationsService, private _fb:FormBuilder, private _authService:AuthService) {
     
     this.user = new User(null, '', '', '', '', '', null, null);
 
