@@ -19,6 +19,6 @@ export class AuthService {
     // Headers configuration
     let headers = new HttpHeaders().set('Content-Type','application/json');
     // Petition
-    return this._http.post(GLOBAL.url + 'users/register', params , {headers: headers});
+    return this._http.post(GLOBAL.url + 'auth/register', params , {headers: headers});
   }
 }

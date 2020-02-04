@@ -41,26 +41,51 @@
               <!-- Access form -->
 
               <!-- Register form -->
-              <form action="#" *ngIf="register">
+              <form action="#" (ngSubmit)="registerUser(formRegister)" *ngIf="register" [formGroup]="myForm" novalidate #formRegister>
   
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nombre(s)">
+                  <input type="text" formControlName="name" class="form-control" placeholder="Nombre(s)" [(ngModel)]="user.name">
+                  <div class="errors" *ngFor="let error of validate">
+                    <div *ngIf="myForm.get('name').errors && myForm.get('name').dirty">
+                      <p *ngIf="myForm.get('name').hasError(error.validator)">{{ error.msg }}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Apellido(s)">
+                  <input type="text" formControlName="surname" class="form-control" placeholder="Apellido(s)" [(ngModel)]="user.surname">
+                  <div class="errors" *ngFor="let error of validate">
+                    <div *ngIf="myForm.get('surname').errors && myForm.get('surname').dirty">
+                      <p *ngIf="myForm.get('surname').hasError(error.validator)">{{ error.msg }}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nombre de usuario">
+                  <input type="text" formControlName="nick" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="user.nick">
+                  <div class="errors" *ngFor="let error of validate">
+                    <div *ngIf="myForm.get('nick').errors && myForm.get('nick').dirty">
+                      <p *ngIf="myForm.get('nick').hasError(error.validator)">{{ error.msg }}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Correo">
+                  <input type="text" formControlName="email" class="form-control" placeholder="Correo" [(ngModel)]="user.email">
+                  <div class="errors" *ngFor="let error of validate">
+                    <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+                      <p *ngIf="myForm.get('email').hasError(error.validator)">{{ error.msg }}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Contraseña">
+                  <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password">
+                  <div class="errors" *ngFor="let error of validate">
+                    <div *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
+                      <p *ngIf="myForm.get('password').hasError(error.validator)">{{ this._validationsService.lenghtValidations(error, myForm.get('password').errors) }}</p>
+                    </div>
+                  </div>
                 </div>
   
                 <div class="form-group">
-                  <input type="submit" value="Entrar" class="btn btn-primary py-3 w-100">
+                  <input type="submit" [disabled]="myForm.invalid" value="Entrar" class="btn btn-primary py-3 w-100">
                   <span class="position d-block mt-2 ml-2" style="color: rgba(255,255,255,.5);">¿Ya estas registrado? <span class="link" (click)="register = false">Acceder</span>.</span>
                 </div>
   
