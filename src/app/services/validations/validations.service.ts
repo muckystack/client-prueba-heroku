@@ -12,7 +12,7 @@ export class ValidationsService {
     surname:    ['', [Validators.required]],
     nick:       ['', [Validators.required]],
     email:      ['', [Validators.required, Validators.email]],
-    password:   ['', [Validators.required, Validators.minLength(8)]],
+    password:   ['', [Validators.required, Validators.minLength(3)]],
   };
 
   constructor(private _fb:FormBuilder) {

@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
 .all-height {
     height: 100% !important;
     background-color: #421B9B;
     width: 100%;
     overflow: hidden;
+    overflow-y: scroll;
     position: absolute;
 }
-
 
 .block-9 .form-control {
     border-radius: 25px !important;
@@ -25,6 +26,8 @@
 .link {
     color: rgba(255, 255, 255, 0.7) !important;
     cursor: pointer;
-}.link:hover {
+}
+
+.link:hover {
     color: white !important;
 }
