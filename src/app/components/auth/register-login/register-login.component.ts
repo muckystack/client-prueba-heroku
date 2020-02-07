@@ -50,7 +50,7 @@ export class RegisterLoginComponent implements OnInit {
     this.user = new User(null, '', '', '', '', '', null, null);
 
     // Import the ruls of form for register user
-    this.validateRegisterForm = this._fb.group(this._validationsService.accessValidate);
+    this.validateRegisterForm = this._fb.group(this._validationsService.registerValidate);
     
   }
 

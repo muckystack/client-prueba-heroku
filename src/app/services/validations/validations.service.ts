@@ -9,6 +9,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { _validations } from 'src/global/configurations';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,27 @@ export class ValidationsService {
    */
   lenghtValidations(error, form):String {
     return (form.minlength) ? error.msg.split('|')[0] + form.minlength.requiredLength + error.msg.split('|')[1] : error.msg;
+  }
+  
+  
+  getMessages(nameSelector, formValidator):String {
+    let resp:String = '';
+
+    for (let i = 0; i < _validations.length; i++) {
+      if(formValidator.get(nameSelector).errors && formValidator.get(nameSelector).dirty) {
+        if(formValidator.get(nameSelector).hasError(_validations[i].validator)) {
+
+          let aux:string =_validations[i].msg;
+          if(formValidator.get(nameSelector).errors.minlength != undefined)  {
+            aux = this.lenghtValidations(_validations[i], formValidator.get(nameSelector).errors) + '';
+          }
+          resp += aux;
+
+        }
+      }
+    }
+    
+    return resp;
   }
   
   
