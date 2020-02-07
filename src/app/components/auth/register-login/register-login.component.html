@@ -55,47 +55,23 @@
 
                             <div class="form-group">
                                 <input type="text" formControlName="name" class="form-control" placeholder="Nombre(s)" [(ngModel)]="user.name">
-                                <div class="errors">
-                                    <p>{{ this._validationsService.getMessages('name', validateRegisterForm) }}</p>
-                                </div>
-
-                                <!-- <div class="errors" *ngFor="let error of validate">
-                                    <div *ngIf="validateRegisterForm.get('name').errors && validateRegisterForm.get('name').dirty">
-                                        <p *ngIf="validateRegisterForm.get('name').hasError(error.validator)">{{ error.msg }}</p>
-                                    </div>
-                                </div> -->
+                                <p>{{ this._validationsService.getMessages('name', validateRegisterForm) }}</p>
                             </div>
                             <div class="form-group">
                                 <input type="text" formControlName="surname" class="form-control" placeholder="Apellido(s)" [(ngModel)]="user.surname">
-                                <div class="errors" *ngFor="let error of validate">
-                                    <div *ngIf="validateRegisterForm.get('surname').errors && validateRegisterForm.get('surname').dirty">
-                                        <p *ngIf="validateRegisterForm.get('surname').hasError(error.validator)">{{ error.msg }}</p>
-                                    </div>
-                                </div>
+                                <p>{{ this._validationsService.getMessages('surname', validateRegisterForm) }}</p>
                             </div>
                             <div class="form-group">
                                 <input type="text" formControlName="nick" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="user.nick">
-                                <div class="errors" *ngFor="let error of validate">
-                                    <div *ngIf="validateRegisterForm.get('nick').errors && validateRegisterForm.get('nick').dirty">
-                                        <p *ngIf="validateRegisterForm.get('nick').hasError(error.validator)">{{ error.msg }}</p>
-                                    </div>
-                                </div>
+                                <p>{{ this._validationsService.getMessages('nick', validateRegisterForm) }}</p>
                             </div>
                             <div class="form-group">
                                 <input type="text" formControlName="email" class="form-control" placeholder="Correo" [(ngModel)]="user.email">
-                                <div class="errors" *ngFor="let error of validate">
-                                    <div *ngIf="validateRegisterForm.get('email').errors && validateRegisterForm.get('email').dirty">
-                                        <p *ngIf="validateRegisterForm.get('email').hasError(error.validator)">{{ error.msg }}</p>
-                                    </div>
-                                </div>
+                                <p>{{ this._validationsService.getMessages('email', validateRegisterForm) }}</p>
                             </div>
                             <div class="form-group">
                                 <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password">
-                                <div class="errors" *ngFor="let error of validate">
-                                    <div *ngIf="validateRegisterForm.get('password').errors && validateRegisterForm.get('password').dirty">
-                                        <p *ngIf="validateRegisterForm.get('password').hasError(error.validator)">{{ this._validationsService.lenghtValidations(error, validateRegisterForm.get('password').errors) }}</p>
-                                    </div>
-                                </div>
+                                <p>{{ this._validationsService.getMessages('password', validateRegisterForm) }}</p>
                             </div>
 
                             <div class="form-group">
