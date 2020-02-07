@@ -9,10 +9,17 @@ import { User } from 'src/models/user.model';
 })
 export class AuthService {
 
+  /**
+   * Contructor function
+   * @param _http Library for conection
+   */
   constructor(private _http:HttpClient) { }
 
   
-  // Register new user
+  /**
+   * Function register one user
+   * @param user 
+   */
   registerUser(user:User): Observable<any> {
     // Parser to json
     let params = JSON.stringify(user);
@@ -20,5 +27,18 @@ export class AuthService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     // Petition
     return this._http.post(GLOBAL.url + 'auth/register', params , {headers: headers});
+  }
+  
+  /**
+   * Function register one user
+   * @param user 
+   */
+  loginUser(user:User): Observable<any> {
+    // Parser to json
+    let params = JSON.stringify(user);
+    // Headers configuration
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    // Petition
+    return this._http.post(GLOBAL.url + 'auth/login', params , {headers: headers});
   }
 }

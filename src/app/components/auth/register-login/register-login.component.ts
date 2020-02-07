@@ -1,3 +1,11 @@
+/**
+ * Register and login
+ *
+ * Author: Miguel Ángel Martínez Puga
+ * Date: 04/02/2020
+ * Version: 1.0
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
@@ -12,42 +20,73 @@ import { ValidationsService } from 'src/app/services/validations/validations.ser
 })
 export class RegisterLoginComponent implements OnInit {
   
-  // Variables
+  /* VARIABLE */
+   // Controler the form
   public register:boolean = true;
-  public myForm:FormGroup;
-
+  // Ruls of validation
   public validate = _validations;
+  
 
-  // Models
+
+  /* MODEL */
+  // 
   public user:User;
+  // Model of validations
+  public validateRegisterForm:FormGroup;
 
+
+
+
+
+  /**
+   * Constructor
+   * @param _validationsService Service of ruls for validate form 
+   * @param _fb Library for create form of ruls for validation columns of form
+   * @param _authService Service of petition for access platform
+   */
   constructor(public _validationsService:ValidationsService, private _fb:FormBuilder, private _authService:AuthService) {
     
+    // Create model of user
     this.user = new User(null, '', '', '', '', '', null, null);
 
-    this.myForm = _fb.group(this._validationsService.accessValidate);
+    // Import the ruls of form for register user
+    this.validateRegisterForm = this._fb.group(this._validationsService.accessValidate);
     
   }
 
+  // NgInit
   ngOnInit() {
   }
 
 
-  // Register user
-  registerUser(form:NgForm) {
 
+
+
+  /* -----------------------------------FUNCTIONS---------------------------------- */
+
+  /**
+   * Function register one user
+   * @param form Form from html
+   */
+  registerUser(form:NgForm) {
     this._authService.registerUser(this.user).subscribe(
       response => {
-        console.log(response);
         form.reset();
         this._validationsService.alertSuccess(response);
       },
       error => {
-        console.log(error);
         this._validationsService.alertError(error.error);
       }
     );
+  }
 
+
+  /**
+   * Function access user
+   * @param form Form from html
+   */
+  accessUser(form:NgForm) {
+    // this._authService
   }
 
 }

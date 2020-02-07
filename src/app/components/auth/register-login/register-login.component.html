@@ -1,9 +1,18 @@
+<!-- 
+    Register and login component
+
+    Author: Miguel Ángel Martínez Puga
+    Date: 04/02/2020
+    Version: 1.0
+ -->
+
+
 <div class="ftco-footer pt-5 pb-5 ftco-bg-dark ftco-section all-height">
     <div class="row col-12">
 
         <div class="container col-md-5 col-12">
             <div class="col-lg-12 py-5">
-                <img src="../../../assets/img/undraw_visual_data_b1wx.svg" style="width: 100%;" alt="">
+                <img src="../../../assets/img/undraw_podcast_q6p7.svg" style="width: 100%;" alt="">
             </div>
         </div>
 
@@ -42,7 +51,7 @@
                         <!-- Access form -->
 
                         <!-- Register form -->
-                        <form action="#" (ngSubmit)="registerUser(formRegister)" *ngIf="register" [formGroup]="myForm" novalidate #formRegister>
+                        <form action="#" (ngSubmit)="registerUser(validateRegisterForm)" *ngIf="register" [formGroup]="validateRegisterForm" novalidate #validateRegisterForm>
 
                             <div class="form-group">
                                 <input type="text" formControlName="name" class="form-control" placeholder="Nombre(s)" [(ngModel)]="user.name">
