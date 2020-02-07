@@ -10,13 +10,13 @@
 <div class="ftco-footer pt-5 pb-5 ftco-bg-dark ftco-section all-height">
     <div class="row col-12">
 
-        <div class="container col-md-5 col-12">
+        <div class="container col-md-5 col-12 fadeInUp ftco-animated">
             <div class="col-lg-12 py-5">
                 <img src="../../../assets/img/undraw_podcast_q6p7.svg" style="width: 100%;" alt="">
             </div>
         </div>
 
-        <div class="container col-md-5 col-12">
+        <div class="container col-md-5 col-12 fadeInUp ftco-animated">
 
             <div class="mb-3 pb-3 align-items-center col-12">
                 <div class="col-12">
@@ -33,13 +33,15 @@
                     <div class="col-12">
 
                         <!-- Access form -->
-                        <form action="#" *ngIf="!register">
+                        <form (ngSubmit)="accessUser(AccessForm)" *ngIf="!register" [formGroup]="validateAccessForm" novalidate #AccessForm>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Correo">
+                                <input type="text" formControlName="email" class="form-control" placeholder="Correo" [(ngModel)]="user.email">
+                                <p>{{ this._validationsService.getMessages('email', validateAccessForm) }}</p>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña">
+                                <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password">
+                                <p>{{ this._validationsService.getMessages('password', validateAccessForm) }}</p>
                             </div>
 
                             <div class="form-group">

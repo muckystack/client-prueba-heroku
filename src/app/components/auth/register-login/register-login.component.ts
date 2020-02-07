@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { User } from 'src/models/user.model';
 import { _validations } from 'src/global/configurations';
 import { ValidationsService } from 'src/app/services/validations/validations.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-login',
@@ -22,7 +23,7 @@ export class RegisterLoginComponent implements OnInit {
   
   /* VARIABLE */
    // Controler the form
-  public register:boolean = true;
+  public register:boolean = false;
   // Ruls of validation
   public validate = _validations;
   
@@ -33,6 +34,7 @@ export class RegisterLoginComponent implements OnInit {
   public user:User;
   // Model of validations
   public validateRegisterForm:FormGroup;
+  public validateAccessForm:FormGroup;
 
 
 
@@ -40,17 +42,19 @@ export class RegisterLoginComponent implements OnInit {
 
   /**
    * Constructor
+   * @param _router Library for navigate for routs of the site
    * @param _validationsService Service of ruls for validate form 
    * @param _fb Library for create form of ruls for validation columns of form
    * @param _authService Service of petition for access platform
    */
-  constructor(public _validationsService:ValidationsService, private _fb:FormBuilder, private _authService:AuthService) {
+  constructor(private _router:Router, public _validationsService:ValidationsService, private _fb:FormBuilder, private _authService:AuthService) {
     
     // Create model of user
     this.user = new User(null, '', '', '', '', '', null, null);
 
     // Import the ruls of form for register user
     this.validateRegisterForm = this._fb.group(this._validationsService.registerValidate);
+    this.validateAccessForm = this._fb.group(this._validationsService.accessValidate);
     
   }
 
@@ -86,7 +90,15 @@ export class RegisterLoginComponent implements OnInit {
    * @param form Form from html
    */
   accessUser(form:NgForm) {
-    // this._authService
+    this._authService.loginUser(this.user).subscribe(
+      response => {
+        console.log(response);
+        (response.access) ? this._router.navigate(['home']) : '';
+      },
+      error => {
+        this._validationsService.alertError(error.error);
+      }
+    )
   }
 
 }

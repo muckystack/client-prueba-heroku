@@ -24,13 +24,13 @@ export class ValidationsService {
     surname:    ['', [Validators.required]],
     nick:       ['', [Validators.required]],
     email:      ['', [Validators.required, Validators.email]],
-    password:   ['', [Validators.required, Validators.minLength(8)]],
+    password:   ['', [Validators.required, Validators.minLength(6)]],
   };
 
   // Validate login
   public accessValidate = {
     email:      ['', [Validators.required, Validators.email]],
-    password:   ['', [Validators.required, Validators.minLength(8)]],
+    password:   ['', [Validators.required, Validators.minLength(6)]],
   };
 
 
